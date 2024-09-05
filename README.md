@@ -8,10 +8,14 @@ This project walks you through the following scenario:
 
 ## Requirements
 * AWS account
-* Terraform
-* Ansible
+* [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+* [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
 
 ## Usage
+1. Clone the repository
+    ```
+    git clone https://github.com/zseta/tablets-scaling.git
+    ```
 1. Create EC2 instances in AWS (takes 4+ minutes)
     ```bash
     terraform init
@@ -19,6 +23,7 @@ This project walks you through the following scenario:
     terraform apply
     ```
 1. Open ScyllaDB Monitoring
+    
     One of the Terraform outputs is the link to Monitoring, similar to this:
     ```
     Outputs:

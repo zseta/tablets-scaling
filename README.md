@@ -30,8 +30,8 @@ This project walks you through the following scenario:
 
     monitoring_url = "http://<IP-ADDRESS>:3000"
     [...]
-    There should be 1 active node and 5 unreachable nodes seen on the dashboard.
     ```
+    There should be 1 active node and 5 unreachable nodes seen on the dashboard.
 1. CD into the ansible folder to run playbooks
     ```
     cd ansible

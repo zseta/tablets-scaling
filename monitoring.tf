@@ -64,7 +64,7 @@ resource "aws_instance" "scylladb-monitoring" {
       "export docker=/usr/bin/docker",
       "chmod +x ./start-all.sh",
       "chmod +x ./versions.sh",
-      "bash ./start-all.sh -d prometheus_data",
+      "bash ./start-all.sh -d prometheus_data --no-loki --no-renderer --no-alertmanager --no-cas --no-cdc -c GF_SECURITY_ALLOW_EMBEDDING=true",
       "echo 'done'",
     ]
 
@@ -82,6 +82,17 @@ resource "aws_instance" "scylladb-monitoring" {
     private_key = file(var.ssh_private_key)
     host        = self.public_ip
   }
+}
+
+locals {
+  template_file_init = templatefile("${path.module}/index.tftpl", {
+    monitoring_ip = "${aws_instance.scylladb-monitoring.*.public_ip[0]}"
+  })
+}
+
+resource "local_file" "create_html" {
+  content = local.template_file_init
+  filename = "${path.module}/index.html"
 }
 
 output "monitoring_url" {

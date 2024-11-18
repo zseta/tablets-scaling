@@ -65,3 +65,8 @@ This project walks you through the following scenario:
     cd ..
     terraform destroy
     ```
+
+## DEMO UI
+You can also run the DEMO with a user interface. To access the UI, run Terraform as usual then open `index.html` (the link to this file is also an output of TF).
+
+![ui screenshot](./images/ui_screen.png)

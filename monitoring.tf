@@ -98,3 +98,7 @@ resource "local_file" "create_html" {
 output "monitoring_url" {
   value = format("http://%s:3000", aws_instance.scylladb-monitoring.*.public_ip[0])
 }
+
+output "ui_url" {
+  value = format("http://%s", "${path.module}/index.html")
+}
